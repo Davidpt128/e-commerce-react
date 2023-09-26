@@ -1,6 +1,6 @@
 "use client";
 import AppHeader from "components/app.header";
-// import "./globals.css";
+import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import AppFooter from "components/app.footer";
@@ -8,7 +8,6 @@ import StyledComponentsRegistry from "lib/AntdRegistry";
 import { Layout } from "antd";
 
 const inter = Inter({ subsets: ["latin"] });
-const { Content } = Layout;
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,7 +25,7 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <Layout>
             <AppHeader />
-            <Content>{children}</Content>
+            {children}
             <AppFooter />
           </Layout>
         </StyledComponentsRegistry>

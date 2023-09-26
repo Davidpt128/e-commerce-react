@@ -6,7 +6,6 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Layout, Row, Col, Menu } from "antd";
-import Link from "next/link";
 import React, { useState } from "react";
 import type { MenuProps } from "antd";
 import { useRouter } from "next/navigation";
@@ -14,7 +13,7 @@ import { useRouter } from "next/navigation";
 const { Header } = Layout;
 
 const AppHeader: React.FC = () => {
-  const [current, setCurrent] = useState("about");
+  const [current, setCurrent] = useState("");
   const router = useRouter();
   const onClick: MenuProps["onClick"] = (e) => {
     router.push(`/${e.key}`);
@@ -23,8 +22,8 @@ const AppHeader: React.FC = () => {
   return (
     <Header
       style={{
-        backgroundColor: "white",
-        position: "sticky",
+        backgroundColor: "#ffffff",
+        position: "fixed",
         top: 0,
         zIndex: 1,
         width: "100%",
@@ -92,33 +91,32 @@ const AppHeader: React.FC = () => {
             </g>
           </svg>
         </Col>
-        <Col>
-          <Row>
-            <Menu
-              onClick={onClick}
-              selectedKeys={[current]}
-              mode="horizontal"
-              items={[
-                { label: "About us", key: "about" },
-                {
-                  label: "Product",
-                  key: "product",
-                  children: [
-                    {
-                      label: "Men",
-                      key: "men",
-                    },
-                    {
-                      label: "Women",
-                      key: "women",
-                    },
-                  ],
-                },
-                { label: "Blog", key: "blog" },
-                { label: "Contact", key: "contact" },
-              ]}
-            />
-          </Row>
+        <Col span={16}>
+          <Menu
+            onClick={onClick}
+            selectedKeys={[current]}
+            mode="horizontal"
+            items={[
+              { label: "Home", key: "" },
+
+              {
+                label: "Product",
+                key: "product",
+                children: [
+                  {
+                    label: "Men",
+                    key: "men",
+                  },
+                  {
+                    label: "Women",
+                    key: "women",
+                  },
+                ],
+              },
+              { label: "About us", key: "about" },
+              { label: "Contact", key: "contact" },
+            ]}
+          />
         </Col>
         <Col span={2}>
           <Row>
