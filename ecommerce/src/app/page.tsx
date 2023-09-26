@@ -1,95 +1,45 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import React from "react";
+import backGround from "../../public/img/33333 1.png";
+import Image from "next/image";
+import { Button, Col, Row } from "antd";
+import { ArrowRightOutlined } from "@ant-design/icons";
+
+const heightBackground = "100vh";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+    <Row style={{ position: "relative", minHeight: heightBackground }}>
+      <Image
+        alt="Mountains"
+        src={backGround}
+        placeholder="blur"
+        quality={100}
+        fill
+        sizes="100vw"
+        style={{
+          objectFit: "cover",
+        }}
+      />
+      <Col span={12} offset={12}>
+        <Row
+          style={{ minHeight: heightBackground }}
+          justify="center"
+          align="middle"
         >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+          <Col span={12}>
+            <h3>RESULTS YOU CAN FEEL</h3>
+            <h1>Wake up your skin</h1>
+            <p>
+              Concentrated in each drop of our award-winning range, our Mio
+              teaches skin to slow down signs of aging and find its
+              healthy-looking state for good.
+            </p>
+            <Button>
+              Explore The Collection <ArrowRightOutlined />
+            </Button>
+          </Col>
+        </Row>
+      </Col>
+    </Row>
+  );
 }
