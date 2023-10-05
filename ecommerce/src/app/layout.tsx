@@ -2,12 +2,17 @@
 import AppHeader from "components/app.header";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import AppFooter from "components/app.footer";
 import StyledComponentsRegistry from "lib/AntdRegistry";
 import { Layout } from "antd";
+import { Roboto } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  weight: ["400", "500", "700"],
+  style: ["normal", "normal", "normal"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <StyledComponentsRegistry>
           <Layout>
             <AppHeader />

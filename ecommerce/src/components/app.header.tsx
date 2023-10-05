@@ -1,6 +1,5 @@
 "use client";
 import {
-  DownOutlined,
   SearchOutlined,
   ShoppingCartOutlined,
   UserOutlined,
@@ -9,8 +8,28 @@ import { Layout, Row, Col, Menu } from "antd";
 import React, { useState } from "react";
 import type { MenuProps } from "antd";
 import { useRouter } from "next/navigation";
+import Logo from "../../public/img/logo.svg";
 
 const { Header } = Layout;
+const items: MenuProps["items"] = [
+  { label: "Home", key: "" },
+  {
+    label: "Product",
+    key: "product",
+    children: [
+      {
+        label: "Men",
+        key: "men",
+      },
+      {
+        label: "Women",
+        key: "women",
+      },
+    ],
+  },
+  { label: "About us", key: "about" },
+  { label: "Contact", key: "contact" },
+];
 
 const AppHeader: React.FC = () => {
   const [current, setCurrent] = useState("");
@@ -21,16 +40,18 @@ const AppHeader: React.FC = () => {
   };
   return (
     <Header
+      className="header"
       style={{
         backgroundColor: "#ffffff",
         position: "fixed",
         top: 0,
         zIndex: 1,
+        display: "flex",
         width: "100%",
         alignItems: "center",
       }}
     >
-      <Row justify="space-between">
+      <Row style={{ width: "100%" }} justify={"space-between"}>
         <Col>
           <svg
             cursor="pointer"
@@ -93,41 +114,23 @@ const AppHeader: React.FC = () => {
         </Col>
         <Col span={16}>
           <Menu
+            style={{ justifyContent: "center" }}
             onClick={onClick}
             selectedKeys={[current]}
             mode="horizontal"
-            items={[
-              { label: "Home", key: "" },
-
-              {
-                label: "Product",
-                key: "product",
-                children: [
-                  {
-                    label: "Men",
-                    key: "men",
-                  },
-                  {
-                    label: "Women",
-                    key: "women",
-                  },
-                ],
-              },
-              { label: "About us", key: "about" },
-              { label: "Contact", key: "contact" },
-            ]}
+            items={items}
           />
         </Col>
-        <Col span={2}>
+        <Col>
           <Row>
             <Col sm={8}>
-              <SearchOutlined />
+              <SearchOutlined className="header__icon" />
             </Col>
             <Col sm={8}>
-              <UserOutlined />
+              <UserOutlined className="header__icon" />
             </Col>
             <Col sm={8}>
-              <ShoppingCartOutlined />
+              <ShoppingCartOutlined className="header__icon" />
             </Col>
           </Row>
         </Col>
