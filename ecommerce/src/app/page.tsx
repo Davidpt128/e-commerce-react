@@ -11,7 +11,7 @@ const { Meta } = Card;
 
 export default function Home() {
   return (
-    <Content>
+    <Content className="content">
       <Row style={{ position: "relative", minHeight: heightBg }}>
         <Image
           alt="Mountains"
